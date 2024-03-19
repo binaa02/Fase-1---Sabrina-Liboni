@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Aluno</title>
+    <style>
+        /* Estilos CSS podem ser adicionados aqui */
+    </style>
+</head>
+<body>
+    <h1>Perfil do Aluno</h1>
+    
+    <!-- Formulário para informações do aluno -->
+    <form>
+        <label for="nome">Nome Completo:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="ra">RA:</label>
+        <input type="text" id="ra" name="ra" required><br><br>
+
+        <label for="curso">Curso e Período Atual:</label>
+        <input type="text" id="curso" name="curso" required><br><br>
+
+        <label for="endereco">Endereço Completo:</label>
+        <input type="text" id="endereco" name="endereco" required><br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="foto">Foto de Perfil:</label>
+        <input type="file" id="foto" name="foto" accept="image/*"><br><br>
+
+        <label for="ucs">UCs já cursadas:</label>
+        <textarea id="ucs" name="ucs" rows="4" cols="50"></textarea><br><br>
+
+        <label for="perfilPessoal">Breve descrição de seu perfil pessoal:</label>
+        <textarea id="perfilPessoal" name="perfilPessoal" rows="4" cols="50"></textarea><br><br>
+
+        <label for="perfilProfissional">Breve descrição de seu perfil profissional/acadêmico:</label>
+        <textarea id="perfilProfissional" name="perfilProfissional" rows="4" cols="50"></textarea><br><br>
+
+        <label for="linkedin">Link para LinkedIn:</label>
+        <input type="url" id="linkedin" name="linkedin"><br><br>
+
+        <!-- Adicione mais campos para outras redes sociais, se necessário -->
+
+        <input type="submit" value="Salvar">
+    </form>
+</body>
+</html>
 
