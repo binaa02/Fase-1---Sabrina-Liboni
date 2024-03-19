@@ -1,1 +1,83 @@
+HTML (perfil_aluno.html):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Aluno</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Perfil do Aluno</h1>
+    <table>
+        <tr>
+            <td>
+                <div class="profile-images">
+                    <img src="perfil1.jpg" alt="Perfil 1" class="active">
+                    <img src="perfil2.jpg" alt="Perfil 2">
+                    <img src="perfil3.jpg" alt="Perfil 3">
+                </div>
+            </td>
+            <td>
+                <div class="profile-details">
+                    <h2>Dados Pessoais</h2>
+                    <p>Nome: João Silva</p>
+                    <p>Idade: 20 anos</p>
+                    <p>Email: joao.silva@example.com</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
+CSS (styles.css):
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+}
+
+.profile-images img {
+    width: 100px;
+    height: auto;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.profile-images img.active {
+    border: 2px solid #007bff;
+}
+
+.profile-details {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile-details h2 {
+    margin-top: 0;
+    color: #007bff;
+}
+JavaScript (script.js):
+document.addEventListener("DOMContentLoaded", function () {
+    const profileImages = document.querySelectorAll(".profile-images img");
+    
+    profileImages.forEach(img => {
+        img.addEventListener("click", function () {
+            profileImages.forEach(img => img.classList.remove("active"));
+            this.classList.add("active");
+        });
+    });
+});
 
