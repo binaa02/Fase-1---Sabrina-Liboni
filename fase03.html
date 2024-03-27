@@ -1,0 +1,93 @@
+HTML
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil do Aluno</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Perfil do Aluno</h1>
+
+  <h2>Lista de UCs</h2>
+  <table id="uc-table">
+    <thead>
+      <tr>
+        <th>UC</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Aqui serão adicionadas as UCs dinamicamente -->
+    </tbody>
+  </table>
+
+  <button onclick="adicionarUC()">Adicionar UC</button>
+
+  <h2>Formulário</h2>
+  <form id="perfil-form">
+    <label for="cpf">CPF:</label>
+    <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Digite seu email">
+
+    <!-- Adicione novos campos aqui conforme necessário -->
+
+    <input type="submit" value="Salvar">
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
+CSS
+/* Estilos CSS */
+/* Adicione seus estilos personalizados aqui */
+JavaScript
+// Função para adicionar UCs na lista
+function adicionarUC() {
+  var uc = prompt("Digite o nome da UC:");
+  if (uc) {
+    var table = document.getElementById("uc-table").getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow();
+    var cell1 = newRow.insertCell(0);
+    var cell2 = newRow.insertCell(1);
+    var cell3 = newRow.insertCell(2);
+    cell1.innerHTML = uc;
+    cell2.innerHTML = "Descrição da UC"; // Adicione uma descrição padrão ou utilize prompt para obter a descrição
+    cell3.innerHTML = "<button onclick='moverUC(this.parentNode.parentNode, \"up\")'>▲</button> <button onclick='moverUC(this.parentNode.parentNode, \"down\")'>▼</button>";
+  }
+}
+
+// Função para mover UCs para cima ou para baixo na lista
+function moverUC(row, direction) {
+  var table = document.getElementById("uc-table").getElementsByTagName('tbody')[0];
+  var index = row.rowIndex;
+  if (direction === "up" && index > 1) {
+    table.insertBefore(row, table.rows[index - 1]);
+  } else if (direction === "down" && index < table.rows.length - 1) {
+    table.insertBefore(row, table.rows[index + 1].nextSibling);
+  }
+}
+
+// Validação do CPF
+document.getElementById('cpf').addEventListener('blur', function() {
+  var cpfInput = this.value;
+  if (!/^(\d{3}\.){2}\d{3}-\d{2}$/.test(cpfInput)) {
+    alert('CPF inválido!');
+    this.focus();
+  }
+});
+
+// Validação do e-mail
+document.getElementById('email').addEventListener('blur', function() {
+  var emailInput = this.value;
+  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput)) {
+    alert('Email inválido!');
+    this.focus();
+  }
+});
+
+
